@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>i hate this</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="menu">
+    <h1>how many flies (finns)?</h1>
+    <div id="mode-pick">
+        <button class="mode sel" id="btn-timed">timed</button>
+        <button class="mode" id="btn-chill">timeless</button>
+    </div>
+    <button id="btn-play">play me twin</button>
+    <p id="menu-best"></p>
+</div>
+
+<div id="game" class="off">
+    <div id="hud">
+        <span>round <b id="h-rnd">1</b></span>
+        <span>streak <b id="h-str">0</b></span>
+        <span>best <b id="h-best">0</b></span>
+        <span id="h-lives">♥♥♥</span>
+        <div id="bar"><div id="fill"></div></div>
+    </div>
+    <div id="arena"></div>
+    <div id="bottom">
+        <input id="inp" type="number" placeholder="?" autocomplete="off" inputmode="numeric">
+        <button id="btn-go">guess</button>
+    </div>
+</div>
+
+<div id="msg" class="off">
+    <div id="msg-box">
+        <p id="msg-icon"></p>
+        <p id="msg-text"></p>
+        <p id="msg-sub"></p>
+        <button id="btn-next">next</button>
+    </div>
+</div>
+
+<div id="dead" class="off">
+    <div id="dead-box">
+        <p>noob</p>
+        <h2>game over</h2>
+        <p id="dead-info"></p>
+        <p><b id="d-str">0</b> streak &nbsp; <b id="d-best">0</b> best &nbsp; <b id="d-rnd">0</b> rounds</p>
+        <button id="btn-retry">again</button>
+    </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
