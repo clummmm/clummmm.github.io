@@ -166,6 +166,7 @@ function go() {
     var v = inp.value.trim()
     if (!v) return
     stopTimer()
+    inp.blur()
     var n = parseInt(v)
     if (n === numFlies) correct()
     else wrong(n)
