@@ -210,4 +210,3 @@ html, body {
 @media (orientation: landscape) and (max-height: 600px) {
     #rotate-block { display: flex; }
 }
-
