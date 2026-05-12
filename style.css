@@ -189,3 +189,25 @@ html, body {
 
 .nope { color: #ff4d6a; }
 .ok { color: #a8e063; }
+
+#rotate-block {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    color: #eee;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+#rotate-block p:first-child { font-size: 3rem; }
+
+@media (orientation: landscape) and (max-height: 600px) {
+    #rotate-block { display: flex; }
+}
+
