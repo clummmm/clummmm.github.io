@@ -159,7 +159,6 @@ function next() {
     requestAnimationFrame(function() {
         spawn()
         startTimer()
-        inp.focus()
     })
 }
 
