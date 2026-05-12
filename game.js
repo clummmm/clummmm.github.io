@@ -237,4 +237,46 @@ btnChill.onclick = function() {
     btnTimed.classList.remove("sel")
 }
 
+function refitFlies() {
+    var rect = arena.getBoundingClientRect()
+    if (rect.width === 0 || rect.height === 0) return
+    var flies = arena.querySelectorAll(".fly")
+    for (var i = 0; i < flies.length; i++) {
+        var f = flies[i]
+        var sz = f.offsetWidth
+        var maxX = rect.width - sz - 10
+        var maxY = rect.height - sz - 10
+        if (maxX < 10) maxX = 10
+        if (maxY < 10) maxY = 10
+        var cx = parseInt(f.style.left) || 0
+        var cy = parseInt(f.style.top) || 0
+        if (cx > maxX) f.style.left = maxX + "px"
+        if (cx < 10) f.style.left = "10px"
+        if (cy > maxY) f.style.top = maxY + "px"
+        if (cy < 10) f.style.top = "10px"
+    }
+}
+
+var wasLandscape = false
+function checkOrientation() {
+    var isLandscape = window.innerWidth > window.innerHeight && window.innerHeight < 600
+    if (isLandscape && !wasLandscape && !chill) {
+        stopTimer()
+    }
+    if (!isLandscape && wasLandscape) {
+        refitFlies()
+        if (!chill && !gameEl.classList.contains("off") && msgEl.classList.contains("off") && deadEl.classList.contains("off")) {
+            startTimer()
+        }
+    }
+    wasLandscape = isLandscape
+}
+window.addEventListener("resize", function() {
+    checkOrientation()
+    refitFlies()
+})
+window.addEventListener("orientationchange", function() {
+    setTimeout(function() { checkOrientation(); refitFlies() }, 150)
+})
+
 showMenu()
